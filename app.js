@@ -54,7 +54,12 @@ guessBtn.addEventListener('click', function() {
             gameOver(false, `Game over, YOU LOST! Correct number was ${winningNum}.`);
         } else {
             //if guesses remain then game continue
-            showMessage(`${guess} is not correct. ${guessLeft} guesses left.`, 'red');
+            if(guess > winningNum) {
+                showMessage(`${guess} is greater than winning number. ${guessLeft} guesses left.`, 'red');
+            }
+            if(guess < winningNum) {
+                showMessage(`${guess} is smaller than winning number. ${guessLeft} guesses left.`, 'red');
+            }
             guessInput.style.borderColor = 'red';
             guessInput.value = '';
         } 
